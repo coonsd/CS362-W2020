@@ -3,6 +3,13 @@
 Created on Thurs Jan 16 18:48:00 2020
 
 @author: coonsd
+
+This version of playDominion has a test scenario where 
+there is only one player name provided.
+
+The game does not crash, but it causes the number of 
+curse cards to be zero.  It also violates the rule that 
+Dominion is played with 2-4 players.
 """
 
 import Dominion
@@ -12,6 +19,10 @@ from collections import defaultdict
 
 #Get player names
 player_names = testUtility.GetNames()
+
+# TEST SCENARIO
+# Remove all players except the first
+player_names = player_names[0:1]
 
 #number of curses and victory cards
 nV = testUtility.GetNumVictoryCards(player_names)

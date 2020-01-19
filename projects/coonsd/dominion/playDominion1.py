@@ -3,6 +3,14 @@
 Created on Thurs Jan 16 18:48:00 2020
 
 @author: coonsd
+
+This version of playDominion has a test scenario where
+all Gold cards in the supply are replaced with Copper.
+
+The result is that while Gold cards appear in the 
+supply, they cannot be bought due to how the 
+namesinlist function uses the name property of the Card 
+as opposed to the key in the Supply dict.
 """
 
 import Dominion
@@ -33,6 +41,11 @@ trash = []
 
 #Costruct the Player objects
 players = testUtility.GetPlayerSet(player_names)
+
+# TEST SCENARIO
+# All Gold cards in the supply are replaced with Copper cards
+supply["Gold"] = [Dominion.Copper() for x in supply["Gold"]]
+
 
 #Play the game
 turn  = 0
